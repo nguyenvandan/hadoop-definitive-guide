@@ -1,4 +1,4 @@
-package home.lab.hadoop.wordcount;
+package home.lab.hadoop.temparature;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;

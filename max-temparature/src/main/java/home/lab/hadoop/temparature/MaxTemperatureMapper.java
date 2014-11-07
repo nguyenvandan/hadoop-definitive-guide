@@ -1,4 +1,4 @@
-package home.lab.hadoop.wordcount;
+package home.lab.hadoop.temparature;
 
 import java.io.IOException;
 

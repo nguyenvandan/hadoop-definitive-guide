@@ -8,6 +8,6 @@
 
 
 	<modules>
-		<module>wordcount</module>
+		<module>max-temperature</module>
 	</modules>
 </project>

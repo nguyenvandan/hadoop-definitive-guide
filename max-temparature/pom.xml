@@ -6,7 +6,7 @@
 		<artifactId>hadoop-definitive-guide</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>wordcount</artifactId>
+	<artifactId>max-temperature</artifactId>
 
 	<properties>
 		<hadoop.version>2.5.0-mr1-cdh5.2.0</hadoop.version>
