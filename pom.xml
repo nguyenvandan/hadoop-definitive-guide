@@ -6,8 +6,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-
 	<modules>
 		<module>max-temperature</module>
+		<module>filesystem</module>
 	</modules>
 </project>
