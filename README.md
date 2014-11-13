@@ -2,7 +2,7 @@ hadoop-definitive-guide
 =======================
 
 Maven setting.xml
-
+```xml
 <server>
 	<id>ssh-hadoop</id>
 	<username>cloudera</username>
@@ -13,3 +13,4 @@ Maven setting.xml
     	<scpArgs>trust true</scpArgs>        
   	</configuration>
 </server>
+```
