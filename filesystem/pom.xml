@@ -10,6 +10,8 @@
 
 	<properties>
 		<hadoop.version>2.5.0-mr1-cdh5.2.0</hadoop.version>
+		<hadoop.server>10.228.124.11</hadoop.server>
+		<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
 	</properties>
 
 	<dependencies>
@@ -43,24 +45,41 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>server-copy</id>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<echo message="Push to ${hadoop.server}${server.fs}" />
+								<scp trust="yes" todir="cloudera:cloudera@${hadoop.server}:${server.fs}">
+									<fileset dir="${basedir}/target">
+										<include name="**/*.jar" />
+									</fileset>
+								</scp>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-jsch</artifactId>
+						<version>1.9.4</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
-
-		<extensions>
-			<!-- Enabling the use of FTP -->
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>2.7</version>
-			</extension>
-		</extensions>
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>ssh-hadoop</id>
-			<url>scpexe://10.228.124.11/home/cloudera/Hadoop/fs</url>			
-		</repository>
-	</distributionManagement>
+
 
 	<repositories>
 		<repository>
