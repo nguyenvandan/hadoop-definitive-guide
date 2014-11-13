@@ -12,8 +12,18 @@
 		<hadoop.version>2.5.0-mr1-cdh5.2.0</hadoop.version>
 		<hadoop.version2>2.5.0-cdh5.2.0</hadoop.version2>
 		<hadoop.server>10.228.124.11</hadoop.server>
-		<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
+		<server.fs>/home/cloudera/Hadoop/</server.fs>
 	</properties>
+	
+	<profiles>
+		<profile>
+			<id>disney</id>
+			<properties>
+				<hadoop.server>10.228.124.11</hadoop.server>
+				<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
+			</properties>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<dependency>
