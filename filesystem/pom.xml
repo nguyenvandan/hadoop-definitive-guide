@@ -23,6 +23,13 @@
 				<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
 			</properties>
 		</profile>
+		<profile>
+			<id>home</id>
+			<properties>
+				<hadoop.server>192.168.1.74</hadoop.server>
+				<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
+			</properties>
+		</profile>
 	</profiles>
 
 	<dependencies>

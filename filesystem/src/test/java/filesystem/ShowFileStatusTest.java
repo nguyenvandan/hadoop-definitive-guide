@@ -36,7 +36,7 @@ public class ShowFileStatusTest {
 		cluster = builder.build();		
 		fs = cluster.getFileSystem();
 		OutputStream out = fs.create(new Path("/dir/file"));
-		out.write("VanDan".getBytes("UTF-8"));
+		out.write("content".getBytes("UTF-8"));
 		out.close();
 	}
 
@@ -65,8 +65,8 @@ public class ShowFileStatusTest {
 		assertThat(stat.getModificationTime(),
 				is(lessThanOrEqualTo(System.currentTimeMillis())));
 		assertThat(stat.getReplication(), is((short) 1));
-		assertThat(stat.getBlockSize(), is(64 * 1024 * 1024L));
-		assertThat(stat.getOwner(), is("tom"));
+		assertThat(stat.getBlockSize(), is(128 * 1024 * 1024L));
+		assertThat(stat.getOwner(), is("vdnguyen"));
 		assertThat(stat.getGroup(), is("supergroup"));
 		assertThat(stat.getPermission().toString(), is("rw-r--r--"));
 	}
@@ -82,7 +82,7 @@ public class ShowFileStatusTest {
 				is(lessThanOrEqualTo(System.currentTimeMillis())));
 		assertThat(stat.getReplication(), is((short) 0));
 		assertThat(stat.getBlockSize(), is(0L));
-		assertThat(stat.getOwner(), is("tom"));
+		assertThat(stat.getOwner(), is("vdnguyen"));
 		assertThat(stat.getGroup(), is("supergroup"));
 		assertThat(stat.getPermission().toString(), is("rwxr-xr-x"));
 	}
