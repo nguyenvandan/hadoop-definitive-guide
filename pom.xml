@@ -9,5 +9,6 @@
 	<modules>
 		<module>max-temperature</module>
 		<module>filesystem</module>
+		<module>hadoop-io</module>
 	</modules>
 </project>

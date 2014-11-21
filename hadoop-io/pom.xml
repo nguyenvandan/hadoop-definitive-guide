@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>home.lab.hadoop</groupId>
+    <artifactId>hadoop-definitive-guide</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>hadoop-io</artifactId>
+  
+  
+	<properties>
+		<hadoop.version>2.5.0-mr1-cdh5.2.0</hadoop.version>
+		<hadoop.version2>2.5.0-cdh5.2.0</hadoop.version2>
+		<hadoop.server>10.228.124.11</hadoop.server>
+		<server.fs>/home/cloudera/Hadoop/</server.fs>
+	</properties>
+	
+	<profiles>
+		<profile>
+			<id>disney</id>
+			<properties>
+				<hadoop.server>10.228.124.11</hadoop.server>
+				<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
+			</properties>
+		</profile>
+		<profile>
+			<id>home</id>
+			<properties>
+				<hadoop.server>192.168.1.74</hadoop.server>
+				<server.fs>/home/cloudera/Hadoop/fs/</server.fs>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>jdk.tools</groupId>
+			<artifactId>jdk.tools</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+			<version>${hadoop.version2}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-test</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>server-copy</id>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<echo message="Push to ${hadoop.server}${server.fs}" />
+								<scp trust="yes" todir="cloudera:cloudera@${hadoop.server}:${server.fs}">
+									<fileset dir="${basedir}/target">
+										<include name="**/*.jar" />
+									</fileset>
+								</scp>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-jsch</artifactId>
+						<version>1.9.4</version>
+					</dependency>
+				</dependencies>
+			</plugin> -->
+		</plugins>
+	</build>
+
+
+
+	<repositories>
+		<repository>
+			<id>cloudera-releases</id>
+			<url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>
