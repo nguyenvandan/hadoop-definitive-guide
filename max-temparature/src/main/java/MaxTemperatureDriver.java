@@ -11,10 +11,10 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class MaxTemperatureDriver extends Configured implements Tool {
 	
-	static {		
-		Configuration.addDefaultResource("conf/yarn-site.xml");
-		Configuration.addDefaultResource("conf/mapred-site.xml");
-	}
+//	static {		
+//		Configuration.addDefaultResource("/home/admin/hadoop/conf/mapred-site.xml");
+//		Configuration.addDefaultResource("/home/admin/hadoop/conf/yarn-site.xml");
+//	}
 	
 	@Override
 	public int run(String[] args) throws Exception {
@@ -40,7 +40,11 @@ public class MaxTemperatureDriver extends Configured implements Tool {
 	}
 
 	public static void main(String[] args) throws Exception {
-		int exitCode = ToolRunner.run(new MaxTemperatureDriver(), args);
+		Configuration conf = new Configuration();
+		conf.addResource("/home/admin/hadoop/conf/mapred-site.xml");
+		conf.addResource("/home/admin/hadoop/conf/yarn-site.xml");
+		
+		int exitCode = ToolRunner.run(conf, new MaxTemperatureDriver(), args);
 		System.exit(exitCode);
 	}
 }
