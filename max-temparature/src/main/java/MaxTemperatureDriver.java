@@ -40,11 +40,11 @@ public class MaxTemperatureDriver extends Configured implements Tool {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Configuration conf = new Configuration();
-		conf.addResource("/home/admin/hadoop/conf/mapred-site.xml");
-		conf.addResource("/home/admin/hadoop/conf/yarn-site.xml");
+//		Configuration conf = new Configuration();
+//		conf.addResource("/home/admin/hadoop/conf/mapred-site.xml");
+//		conf.addResource("/home/admin/hadoop/conf/yarn-site.xml");
 		
-		int exitCode = ToolRunner.run(conf, new MaxTemperatureDriver(), args);
+		int exitCode = ToolRunner.run(new MaxTemperatureDriver(), args);
 		System.exit(exitCode);
 	}
 }
