@@ -6,12 +6,12 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 public class ConfigurationPrinter extends Configured implements Tool {
-	static {
-		Configuration.addDefaultResource("/etc/hadoop/conf.cloudera.hdfs/hdfs-default.xml");
-		Configuration.addDefaultResource("/etc/hadoop/conf.cloudera.hdfs/hdfs-site.xml");
-		Configuration.addDefaultResource("mapred-default.xml");
-		Configuration.addDefaultResource("mapred-site.xml");
-	}
+//	static {
+//		Configuration.addDefaultResource("/etc/hadoop/conf.cloudera.hdfs/hdfs-default.xml");
+//		Configuration.addDefaultResource("/etc/hadoop/conf.cloudera.hdfs/hdfs-site.xml");
+//		Configuration.addDefaultResource("mapred-default.xml");
+//		Configuration.addDefaultResource("mapred-site.xml");
+//	}
 
 	@Override
 	public int run(String[] args) throws Exception {
