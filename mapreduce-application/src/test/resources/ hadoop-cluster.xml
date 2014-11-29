@@ -2,7 +2,7 @@
 <configuration>
 	<property>
 		<name>fs.default.name</name>
-		<value>hdfs://namenode/</value>
+		<value>hdfs://hadoop1.c.optimum-parity-430.internal/</value>
 	</property>
 	<property>
 		<name>mapred.job.tracker</name>
