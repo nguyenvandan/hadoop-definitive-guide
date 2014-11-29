@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration>
+	<property>
+		<name>fs.default.name</name>
+		<value>hdfs://hadoop1.c.optimum-parity-430.internal:8020</value>
+	</property>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.address</name>
+		<value>hadoop3.c.optimum-parity-430.internal:8032</value>
+	</property>
+</configuration>

@@ -55,7 +55,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>hadoop-application</finalName>
+		<finalName>mapreduce-application</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
