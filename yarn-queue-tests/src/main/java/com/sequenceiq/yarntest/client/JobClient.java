@@ -43,9 +43,12 @@ public class JobClient {
 			Path tempDirLow = jobClient.createTempDir("lowPriority");
 			//Create high priority setup - high priority root queue (capacity-scheduler.xml)
 			Path tempDirHigh = jobClient.createTempDir("highPriority");
+			// dafault
+			Path tempDirDefault = jobClient.createTempDir("default");
 			
 			String lowPriorityQueue = new String("lowPriority");
 			String highPriorityQueue = new String("highPriority");
+			String defaultPriorityQueue = new String("default");
 
 			// create YarnRunner to use for job status listing
 			Configuration lowPriorityConf = qo.getConfiguration(lowPriorityQueue);
@@ -55,20 +58,28 @@ public class JobClient {
 	     	Configuration highPriorityConf = qo.getConfiguration(lowPriorityQueue);
 
 			
-			JobID lowPriorityJobID = qo.submitJobsIntoQueues(lowPriorityQueue, tempDirLow);
-			JobID highPriorityJobID = qo.submitJobsIntoQueues(highPriorityQueue, tempDirHigh);
+			//JobID lowPriorityJobID = qo.submitJobsIntoQueues(lowPriorityQueue, tempDirLow);
+			//JobID highPriorityJobID = qo.submitJobsIntoQueues(highPriorityQueue, tempDirHigh);
+			//JobID defaultPriorityJobID = qo.submitJobsIntoQueues(defaultPriorityQueue, tempDirDefault);
 			
 			
 			// list low priority job status
-			JobStatus lowPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, lowPriorityJobID);
+			//JobStatus lowPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, lowPriorityJobID);
 						
 			// list high priority job status
-			JobStatus highPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, highPriorityJobID);
+			//JobStatus highPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, highPriorityJobID);
+			//JobStatus defaultPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, defaultPriorityJobID);
 					
 			// list job statuses & queue information until job(s) are completed
-			for(;!lowPriorityJobStatus.isJobComplete();) {
-				highPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, highPriorityJobID);								
-				lowPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, lowPriorityJobID);				
+//			for(;!lowPriorityJobStatus.isJobComplete();) {
+//				highPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, highPriorityJobID);								
+//				lowPriorityJobStatus = mrJobStatus.printJobStatus(yarnRunner, lowPriorityJobID);				
+//				
+//				queueInformation.printQueueInfo(client, mapper, schedulerURL);
+//				Thread.sleep(1000);
+//			}
+//			
+			while(true) {				
 				
 				queueInformation.printQueueInfo(client, mapper, schedulerURL);
 				Thread.sleep(1000);
