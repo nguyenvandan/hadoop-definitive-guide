@@ -64,6 +64,8 @@ public class MaxTemperatureByStationNameUsingDistributedCacheFile extends
 		job.setReducerClass(MaxTemperatureReducerWithStationLookup.class);
 		return job.waitForCompletion(true) ? 0 : 1;
 	}
+	
+	
 
 	public static void main(String[] args) throws Exception {
 		int exitCode = ToolRunner.run(

@@ -12,5 +12,6 @@
 		<module>hadoop-io</module>
 		<module>mapreduce-application</module>
 		<module>mapreduce-features</module>
+		<module>yarn-queue-tests</module>
 	</modules>
 </project>
